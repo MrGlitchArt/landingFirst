@@ -1,0 +1,249 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+::selection {
+    background-color: blueviolet;
+}
+
+
+main {
+    position: relative;
+    background-color: #333;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#box {
+    position: absolute;
+    z-index: 14;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width:fit-content;
+    height:fit-content;
+    background-color: rgba(137, 43, 226, 0.8);
+    padding: 20px;
+    margin: 20px;
+}
+
+.parallax{
+    pointer-events: none;
+    transition: 0.05s cubic-bezier(0,.65,1,.25);
+}
+
+.bg-img {
+    z-index: 1;
+    position: absolute;
+    width: 4480px;
+    top: calc(50% - 400px);
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    z-index: 4;
+    position: absolute;
+    width: 80%;
+    top: calc(50%);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.fog-b {
+    z-index: 2;
+    position: absolute;
+    width: 4480px;
+    top: calc(50% - 500px);
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.green-sq {
+    z-index: 3;
+    position: absolute;
+    width: 2200px;
+    top: calc(50% - 100px);
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.blue-li {
+    z-index: 5;
+    position: absolute;
+    width: 2240px;
+    top: calc(50% - 500px);
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+
+.text {
+    pointer-events: auto;
+}
+
+.text h2 {
+    font-weight: 100;
+    font-size: 6.5rem;
+    pointer-events: auto;
+    color: blanchedalmond;
+}
+
+.text h3 {
+    font-weight: 300;
+    font-size: 6.5rem;
+    color:aquamarine;
+}
+
+
+
+
+.vignette 
+{
+   position: absolute;
+   z-index: 100;
+   width: 100%; 
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.7));
+   pointer-events: none;
+}
+
+@-webkit-keyframes borderBlink {    
+    from, to {    
+        border-color: transparent;    
+    }    
+    50% {    
+        border-color: rgba(137, 43, 226, 0.8);   
+    }    
+}    
+@keyframes borderBlink {    
+    from, to {    
+        border-color: transparent; 
+    }    
+    50% {    
+        border-color:rgba(89, 244, 46, 0.8); 
+    }    
+}    
+.borderBlink{    
+    border:14px groove rgb(97, 212, 58);
+    /* add 'border-color: transparent' if you wish no border to show initially */  
+}
+.borderBlink {    
+    -webkit-animation: borderBlink 2s step-end infinite;    
+    animation: borderBlink 2s step-end infinite;    
+}
+
+.at-at {
+    padding-right: 3em;
+    color: rgba(137, 43, 226);
+}
+
+footer {
+    z-index: 999;
+    position:absolute;
+    top:95vh;
+    transform:translateY(-100%);
+    display: inline-block;
+    height: 4.5rem;
+    background-color: rgba(137, 43, 226, 0.75);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+footer nav {
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+footer ul a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 1.5rem;
+    font-weight: 300;
+}
+
+footer ul a:hover {
+    color:aqua; 
+}
+
+
+.stack {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .stack span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    font-size: 1.5rem;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    };
+    60% {
+      opacity: 0.5;
+      transform: translateX(50%);
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+      transform: translate(var(--glitch-translate));
+    }
+    2% {
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    4%, 100% {  text-shadow: none; transform: none; }
+  }
