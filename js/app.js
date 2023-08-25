@@ -13,7 +13,7 @@ window.addEventListener("mousemove", (e) => {
     });
 });
 
-window.addEventListener("touchmove", (e) => {
+window.addEventListener("touchstart", (e) => {
     xVal = e.clientX - window.innerWidth / 2;
     yVal = e.clientY - window.innerHeight / 2;
 
