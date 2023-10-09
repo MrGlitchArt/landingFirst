@@ -55,7 +55,7 @@ main {
     z-index: 4;
     position: absolute;
     width: 80%;
-    top: calc(50%);
+    top: calc(45%);
     left: calc(50%);
     transform: translate(-50%, -50%);
     pointer-events: none;
