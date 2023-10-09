@@ -24,8 +24,8 @@ const parallax_el = document.querySelectorAll(".parallax");
       const gamma = event.gamma; // Get the device's gamma (tilt left-to-right) angle
 
       // Calculate the x and y values based on device orientation
-      xVal = gamma * 3;
-      yVal = beta * 3;
+      xVal = gamma * 5;
+      yVal = beta * 7;
       updateParallax();
     });
 
