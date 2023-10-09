@@ -158,7 +158,7 @@ main {
 footer {
     z-index: 999;
     position:absolute;
-    top:95vh;
+    top:90vh;
     transform:translateY(-100%);
     display: inline-block;
     height: 4.5rem;
