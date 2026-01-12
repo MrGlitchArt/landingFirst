@@ -39,4 +39,17 @@ fetch('https://giantblur.com/mrglitch/gallery/get-images.php')
     })
     .catch(error => console.error('Error loading images:', error));
 
-// (Keep the Back-to-Top code from the previous step below this)
+// 5. Back to Top Logic
+const topBtn = document.getElementById("backToTop");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+
+topBtn.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
