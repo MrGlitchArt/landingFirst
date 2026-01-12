@@ -12,7 +12,7 @@ const msnry = new Masonry(grid, {
 });
 
 // Fetch the image list from your PHP script
-fetch('get-images.php')
+fetch('https://giantblur.com/mrglitch/gallery/get-images.php')
     .then(response => response.json())
     .then(imageFiles => {
         imageFiles.forEach(fileName => {
